@@ -200,4 +200,7 @@ def list_user_appointments(conn, user_email):
     return pd.read_sql_query("""
         SELECT id, physician_name, start_utc, end_utc, meeting_link, status, reason
         FROM appointments WHERE user_email = ?
-        ORDER B
+       appts_display["Start (local)"] = appts_display["start_utc"].apply(
+    lambda x: to_user_local(x, user_tz).strftime("%a %d %b %Y, %I:%M %p") if to_user_local(x, user_tz) else ""
+)
+
