@@ -36,4 +36,4 @@ with tabs[0]:
 
     if st.session_state["meetings"]:
         st.subheader("All Scheduled Meetings")
-        for m in st.session_state["meetings"]:
+        [for] m in st.session_state["meetings"]:
