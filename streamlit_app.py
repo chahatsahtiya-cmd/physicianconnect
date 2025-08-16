@@ -209,4 +209,3 @@ appts_display["End (local)"] = appts_display["end_utc"].apply(
 expected_cols = ["physician_name","Start (local)","End (local)","meeting_link","status","reason","id"]
 cols_present = [c for c in expected_cols if c in appts_display.columns]
 appts_display = appts_display[cols_present]
-
