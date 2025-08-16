@@ -206,4 +206,7 @@ def list_user_appointments(conn, user_email):
 appts_display["End (local)"] = appts_display["end_utc"].apply(
     lambda x: to_user_local(x, user_tz).strftime("%I:%M %p") if to_user_local(x, user_tz) else ""
 )
+expected_cols = ["physician_name","Start (local)","End (local)","meeting_link","status","reason","id"]
+cols_present = [c for c in expected_cols if c in appts_display.columns]
+appts_display = appts_display[cols_present]
 
