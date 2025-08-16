@@ -203,4 +203,7 @@ def list_user_appointments(conn, user_email):
        appts_display["Start (local)"] = appts_display["start_utc"].apply(
     lambda x: to_user_local(x, user_tz).strftime("%a %d %b %Y, %I:%M %p") if to_user_local(x, user_tz) else ""
 )
+appts_display["End (local)"] = appts_display["end_utc"].apply(
+    lambda x: to_user_local(x, user_tz).strftime("%I:%M %p") if to_user_local(x, user_tz) else ""
+)
 
